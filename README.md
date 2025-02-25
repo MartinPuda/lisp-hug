@@ -61,3 +61,19 @@ Note 2: [com:do-collection-items](https://www.lispworks.com/documentation/lw50/C
      (rgb-to-int '(255 255 0)))
     (method-chain pts '("Item" 2) "Format" "Fill" '("UserPicture" "path/to/file.png"))))
 ```
+
+### Listener font size
+
+How to set font size in Listener. After compilation, close current Listener and open another one.
+
+```
+(let ((*HANDLE-WARN-ON-REDEFINITION* :warn)
+      (*redefinition-action* :warn))
+  (defmethod capi:interface-display :before ((self lw-tools:listener))
+    (capi:map-pane-descendant-children
+     self (lambda (pane) 
+            (when (equalp (type-of pane) 'CAPI:LISTENER-PANE)
+              (setf (capi:simple-pane-font pane) 
+                    (gp:find-best-font pane (gp:make-font-description 
+                                             :size 30))))))))
+```
