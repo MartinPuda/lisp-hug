@@ -62,9 +62,11 @@ Note 2: [com:do-collection-items](https://www.lispworks.com/documentation/lw50/C
     (method-chain pts '("Item" 2) "Format" "Fill" '("UserPicture" "path/to/file.png"))))
 ```
 
-### Listener font size
+## Listener font size
 
 How to set font size in Listener. After compilation, close current Listener and open another one.
+
+For permanent change, use `define-action` in initialization file (not in Personal Edition).
 
 ```
 (let ((*HANDLE-WARN-ON-REDEFINITION* :warn)
