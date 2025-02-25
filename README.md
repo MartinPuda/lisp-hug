@@ -20,7 +20,9 @@ Prints all available font weights:
 Additional code for example file `(example-edit-file "com/automation/excel/pie-chart")`.
 
 ### Save chart
+
 Add under `(excel-chart-wizard chart ...)`:
+
 ```
 (multiple-value-bind (filename successp filter-name)
     (capi:prompt-for-file "Save Chart" :operation :save)
@@ -30,9 +32,13 @@ Add under `(excel-chart-wizard chart ...)`:
 ```
 
 ### Set color or image of given chart segment
+
 Based on user's code in Visual Basic.
+
 Note: Excel uses BBGGRR.
+
 Note 2: [com:do-collection-items](https://www.lispworks.com/documentation/lw50/COM/html/com-116.htm) can be useful.
+
 ```
 (defun method-chain (o &rest methods)
   (reduce (lambda (o method)
